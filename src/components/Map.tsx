@@ -4,6 +4,18 @@ import 'leaflet/dist/leaflet.css';
 import { Address } from '../types/types';
 import { Loader } from './shared/Loader';
 
+import L from 'leaflet';
+
+import icon from 'leaflet/dist/images/marker-icon.png';
+import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+
+const DefaultIcon = L.icon({
+  iconUrl: icon,
+  shadowUrl: iconShadow
+});
+
+L.Marker.prototype.options.icon = DefaultIcon;
+
 interface MapProps {
   addresses: Address[];
   isLoading: boolean;
